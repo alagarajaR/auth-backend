@@ -87,9 +87,8 @@ app.post("/login", (request, response) => {
 
         // if the passwords match
         .then((passwordCheck) => {
-
           // check if password matches
-          if(!passwordCheck) {
+          if (!passwordCheck) {
             return response.status(400).send({
               message: "Passwords does not match",
               error,
@@ -111,6 +110,7 @@ app.post("/login", (request, response) => {
             message: "Login Successful",
             email: user.email,
             token,
+            userId: user._id,
           });
         })
         // catch error if password do not match
